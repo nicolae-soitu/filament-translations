@@ -1,6 +1,6 @@
 <?php   
 
-namespace NicolaeSoitu\FilamentTranslations\Imports;
+namespace TomatoPHP\FilamentTranslations\Imports;
 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;

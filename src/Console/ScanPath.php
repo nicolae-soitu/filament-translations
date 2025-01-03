@@ -1,11 +1,11 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Console;
+namespace TomatoPHP\FilamentTranslations\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Tomatophp\ConsoleHelpers\Traits\RunCommand;
-use NicolaeSoitu\FilamentTranslations\Services\Scan;
+use TomatoPHP\FilamentTranslations\Services\Scan;
 
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;

@@ -112,7 +112,7 @@ return [
      | Translation resource.
      |
      */
-    'translation_resource' => \NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource::class,
+    'translation_resource' => \TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource::class,
 
     /*
      |--------------------------------------------------------------------------
@@ -154,12 +154,12 @@ return [
     'translators' => [
         'google' => [
             'allowed' => true,
-            'handler' =>  NicolaeSoitu\FilamentTranslations\Translators\Google\GoogleTranslator::class, 
+            'handler' =>  \TomatoPHP\FilamentTranslations\Translators\Google\GoogleTranslator::class, 
             'chunk_size' => 100,
         ],
         'openai' => [
             'allowed' => true,
-            'handler' =>  \NicolaeSoitu\FilamentTranslations\Translators\Openai\OpenaiTranslator::class,
+            'handler' =>  \TomatoPHP\FilamentTranslations\Translators\Openai\OpenaiTranslator::class,
             'chunk_size' => 50,
             'model' => 'gpt-3.5-turbo',
             'system_prompt' => 'You are a translator. Your job is to translate the following json object to the language specified in the prompt.',

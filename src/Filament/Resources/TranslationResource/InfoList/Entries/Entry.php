@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\InfoList\Entries;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\InfoList\Entries;
 
 abstract class Entry
 {

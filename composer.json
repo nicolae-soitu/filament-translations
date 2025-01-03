@@ -23,20 +23,20 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "NicolaeSoitu\\FilamentTranslations\\": "src/"
+            "TomatoPHP\\FilamentTranslations\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NicolaeSoitu\\FilamentTranslations\\Tests\\": "tests/src/",
-            "NicolaeSoitu\\FilamentTranslations\\Tests\\Database\\Factories\\": "tests/database/factories",
-            "NicolaeSoitu\\FilamentTranslations\\Tests\\Database\\Seeders\\": "tests/database/seeders"
+            "TomatoPHP\\FilamentTranslations\\Tests\\": "tests/src/",
+            "TomatoPHP\\FilamentTranslations\\Tests\\Database\\Factories\\": "tests/database/factories",
+            "TomatoPHP\\FilamentTranslations\\Tests\\Database\\Seeders\\": "tests/database/seeders"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "NicolaeSoitu\\FilamentTranslations\\FilamentTranslationsServiceProvider"
+                "TomatoPHP\\FilamentTranslations\\FilamentTranslationsServiceProvider"
             ]
         }
     },

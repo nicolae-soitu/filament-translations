@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\BulkActions;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\BulkActions;
 
 use Filament\Tables;
 

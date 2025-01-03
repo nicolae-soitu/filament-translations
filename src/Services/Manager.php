@@ -1,10 +1,10 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Services;
+namespace TomatoPHP\FilamentTranslations\Services;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Models\Translation;
 
 class Manager
 {

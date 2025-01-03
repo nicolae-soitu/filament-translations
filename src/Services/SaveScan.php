@@ -1,12 +1,12 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Services;
+namespace TomatoPHP\FilamentTranslations\Services;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Lang;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Models\Translation;
 
 class SaveScan
 {

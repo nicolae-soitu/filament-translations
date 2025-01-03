@@ -1,18 +1,18 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Translators\Filament;
+namespace TomatoPHP\FilamentTranslations\Translators\Filament;
 
 use Filament\Actions\Action;
-use NicolaeSoitu\FilamentTranslations\Translators\Openai\OpenaiTranslator;
+use TomatoPHP\FilamentTranslations\Translators\Openai\OpenaiTranslator;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Radio;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\BulkAction;
 use Illuminate\Support\Collection;          
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationBulkActions;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationBulkActions;
 use Filament\Tables\Actions\Action as TableAction;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationActions;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationActions;
+use TomatoPHP\FilamentTranslations\Models\Translation;
 class ModalAction     
 {
     public static $title = '';

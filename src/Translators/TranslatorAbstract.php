@@ -1,9 +1,9 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Translators;
+namespace TomatoPHP\FilamentTranslations\Translators;
 
 use Illuminate\Support\Collection;
-use NicolaeSoitu\FilamentTranslations\Jobs\TranslateJob;    
+use TomatoPHP\FilamentTranslations\Jobs\TranslateJob;    
 
 abstract class TranslatorAbstract implements TranslatorInterface
 {

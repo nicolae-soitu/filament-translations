@@ -1,15 +1,15 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Translators\Google; 
+namespace TomatoPHP\FilamentTranslations\Translators\Google; 
 
-use NicolaeSoitu\FilamentTranslations\Translators\TranslatorInterface;
-use NicolaeSoitu\FilamentTranslations\Translators\Google\GoogleTranslateAction;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationHeaderActions;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
-use NicolaeSoitu\FilamentTranslations\Jobs\TranslateJob;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Translators\TranslatorInterface;
+use TomatoPHP\FilamentTranslations\Translators\Google\GoogleTranslateAction;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationHeaderActions;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
+use TomatoPHP\FilamentTranslations\Jobs\TranslateJob;
+use TomatoPHP\FilamentTranslations\Models\Translation;
 use Stichoza\GoogleTranslate\GoogleTranslate;
-use NicolaeSoitu\FilamentTranslations\Translators\TranslatorAbstract;
+use TomatoPHP\FilamentTranslations\Translators\TranslatorAbstract;
 class GoogleTranslator extends TranslatorAbstract implements TranslatorInterface
 {
     public static function make()

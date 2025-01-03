@@ -1,9 +1,9 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Pages;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Pages;
 
 use Filament\Resources\Pages\CreateRecord;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource;
 
 class CreateTranslation extends CreateRecord
 {

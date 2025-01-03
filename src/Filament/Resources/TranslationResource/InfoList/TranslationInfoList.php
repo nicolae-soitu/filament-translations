@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\InfoList;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\InfoList;
 
 use Filament\Infolists\Components\Entry;
 use Filament\Infolists\Infolist;

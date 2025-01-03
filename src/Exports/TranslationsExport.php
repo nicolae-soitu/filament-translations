@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Exports;
+namespace TomatoPHP\FilamentTranslations\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;

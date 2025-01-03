@@ -1,9 +1,9 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Translators\Google;
+namespace TomatoPHP\FilamentTranslations\Translators\Google;
 
-use NicolaeSoitu\FilamentTranslations\Translators\Filament\ModalAction;
-use NicolaeSoitu\FilamentTranslations\Translators\GoogleTranslator;
+use TomatoPHP\FilamentTranslations\Translators\Filament\ModalAction;
+use TomatoPHP\FilamentTranslations\Translators\GoogleTranslator;
 
 class GoogleTranslateAction extends ModalAction
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Contracts;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Contracts;
 
 use Filament\Actions\StaticAction;
 use Filament\Forms\Form;

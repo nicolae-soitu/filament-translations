@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\Filters;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\Filters;
 
 use Filament\Tables\Filters;
 use Spatie\TranslationLoader\LanguageLine;

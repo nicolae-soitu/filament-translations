@@ -1,9 +1,9 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Console;
+namespace TomatoPHP\FilamentTranslations\Console;
 
 use Illuminate\Console\Command;
-use NicolaeSoitu\FilamentTranslations\Services\SaveScan;
+use TomatoPHP\FilamentTranslations\Services\SaveScan;
 
 use function Laravel\Prompts\spin;
 

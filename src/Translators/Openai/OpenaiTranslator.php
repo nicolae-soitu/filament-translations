@@ -1,16 +1,16 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Translators\Openai;
+namespace TomatoPHP\FilamentTranslations\Translators\Openai;
 
-use NicolaeSoitu\FilamentTranslations\Translators\TranslatorInterface;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationHeaderActions;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
-use NicolaeSoitu\FilamentTranslations\Jobs\TranslateJob;
-use NicolaeSoitu\FilamentTranslations\Translators\TranslatorAbstract;
+use TomatoPHP\FilamentTranslations\Translators\TranslatorInterface;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationHeaderActions;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
+use TomatoPHP\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Jobs\TranslateJob;
+use TomatoPHP\FilamentTranslations\Translators\TranslatorAbstract;
 use OpenAI\Laravel\Facades\OpenAI;
 use Illuminate\Support\Collection;
-use NicolaeSoitu\FilamentTranslations\Translators\Openai\OpenaiTranslateAction;
+use TomatoPHP\FilamentTranslations\Translators\Openai\OpenaiTranslateAction;
 
 class OpenaiTranslator extends TranslatorAbstract implements TranslatorInterface
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\HeaderActions;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\HeaderActions;
 
 use Filament\Tables;
-use NicolaeSoitu\FilamentTranslations\Services\ExcelImportExportService;
+use TomatoPHP\FilamentTranslations\Services\ExcelImportExportService;
 
 class ExportAction extends Action
 {

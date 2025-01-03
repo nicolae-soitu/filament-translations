@@ -2,16 +2,28 @@
 
 # Filament Translations Manager
 
-[![Dependabot Updates](https://github.com/tomatophp/filament-translations/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/tomatophp/filament-translations/actions/workflows/dependabot/dependabot-updates)
-[![PHP Code Styling](https://github.com/tomatophp/filament-translations/actions/workflows/fix-php-code-styling.yml/badge.svg)](https://github.com/tomatophp/filament-translations/actions/workflows/fix-php-code-styling.yml)
-[![Tests](https://github.com/tomatophp/filament-translations/actions/workflows/tests.yml/badge.svg)](https://github.com/tomatophp/filament-translations/actions/workflows/tests.yml)
-[![Latest Stable Version](https://poser.pugx.org/tomatophp/filament-translations/version.svg)](https://packagist.org/packages/tomatophp/filament-translations)
-[![License](https://poser.pugx.org/tomatophp/filament-translations/license.svg)](https://packagist.org/packages/tomatophp/filament-translations)
-[![Downloads](https://poser.pugx.org/tomatophp/filament-translations/d/total.svg)](https://packagist.org/packages/tomatophp/filament-translations)
-
 Manage your translation with DB and cache, you can scan your languages tags like `trans()`, `__()`, and get the string inside and translate them use UI.
 
 this plugin is build in [spatie/laravel-translation-loader](https://github.com/spatie/laravel-translation-loader)
+
+This package is a fork of [tomatophp/filament-translations](https://github.com/tomatophp/filament-translations) with enhanced features:
+
+- Built-in automatic translation using Google Translate and ChatGPT
+- Bulk translation capabilities (all phrases, selected phrases, or individual phrases)
+- Configurable AI model selection in config file
+- Improved prompts for better multi-language support beyond English
+- Extensible translator system - ability to add custom translators in config
+
+[![Dependabot Updates](https://github.com/nicolae-soitu/filament-translations/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/nicolae-soitu/filament-translations/actions/workflows/dependabot/dependabot-updates)
+[![PHP Code Styling](https://github.com/nicolae-soitu/filament-translations/actions/workflows/fix-php-code-styling.yml/badge.svg)](https://github.com/nicolae-soitu/filament-translations/actions/workflows/fix-php-code-styling.yml)
+[![Tests](https://github.com/nicolae-soitu/filament-translations/actions/workflows/tests.yml/badge.svg)](https://github.com/nicolae-soitu/filament-translations/actions/workflows/tests.yml)
+[![Latest Stable Version](https://poser.pugx.org/nicolae-soitu/filament-translations/version.svg)](https://packagist.org/packages/nicolae-soitu/filament-translations)
+[![License](https://poser.pugx.org/nicolae-soitu/filament-translations/license.svg)](https://packagist.org/packages/nicolae-soitu/filament-translations)
+[![Downloads](https://poser.pugx.org/nicolae-soitu/filament-translations/d/total.svg)](https://packagist.org/packages/nicolae-soitu/filament-translations)
+
+
+
+
 
 ## Screenshots
 
@@ -24,7 +36,7 @@ this plugin is build in [spatie/laravel-translation-loader](https://github.com/s
 ## Installation
 
 ```bash
-composer require tomatophp/filament-translations
+composer require nicolae-soitu/filament-translations
 ```
 
 now run install command
@@ -36,20 +48,15 @@ php artisan filament-translations:install
 Finally register the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 
 ```php
-$panel->plugin(\TomatoPHP\FilamentTranslations\FilamentTranslationsPlugin::make())
+$panel->plugin(\TomatoPhp\FilamentTranslations\FilamentTranslationsPlugin::make())
 ```
-
-## Extensions
-
-- [Filament ChatGPT Auto Translation](https://www.github.com/tomatophp/filament-translations-gpt)
-- [Filament Google Translations Auto Translation](https://www.github.com/tomatophp/filament-translations-google)
 
 ### Allow Create Button to Create New Language
 
 If you want to allow the user to create a new language, you need to add the following to your panel provider:
 
 ```php
-$panel->plugin(\TomatoPHP\FilamentTranslations\FilamentTranslationsPlugin::make()->allowCreate())
+$panel->plugin(\TomatoPhp\FilamentTranslations\FilamentTranslationsPlugin::make()->allowCreate())
 ```
 
 ### Allow Clear All Translations Button
@@ -57,12 +64,12 @@ $panel->plugin(\TomatoPHP\FilamentTranslations\FilamentTranslationsPlugin::make(
 If you want to allow the user to clear all translations, you need to add the following to your panel provider:
 
 ```php
-$panel->plugin(\TomatoPHP\FilamentTranslations\FilamentTranslationsPlugin::make()->allowClearTranslations())
+$panel->plugin(\TomatoPhp\FilamentTranslations\FilamentTranslationsPlugin::make()->allowClearTranslations())
 ```
 
 ## Use Language Switcher
 
-we move language switcher to another package you can check it [Filament Language Switcher](https://github.com/tomatophp/filament-language-switcher)
+we move language switcher to another package you can check it [Filament Language Switcher](https://github.com/tomatophp/filament-language-switcher/)
 
 
 ## Scan Using Command Line
@@ -103,12 +110,12 @@ To use automatic translation, make sure you have the following settings in your 
     'translators' => [
         'google' => [
             'allowed' => true,
-            'handler' =>  NicolaeSoitu\FilamentTranslations\Translators\Google\GoogleTranslator::class, 
+            'handler' =>  TomatoPhp\FilamentTranslations\Translators\Google\GoogleTranslator::class, 
             'chunk_size' => 100,
         ],
         'openai' => [
             'allowed' => true,
-            'handler' =>  \NicolaeSoitu\FilamentTranslations\Translators\Openai\OpenaiTranslator::class,
+            'handler' =>  \TomatoPhp\FilamentTranslations\Translators\Openai\OpenaiTranslator::class,
             'chunk_size' => 50,
             'model' => 'gpt-3.5-turbo',
             'system_prompt' => 'You are a translator. Your job is to translate the following json object to the language specified in the prompt.',
@@ -188,7 +195,7 @@ we have add a lot of hooks to make it easy to attach actions, columns, filters, 
 ### Table Columns
 
 ```php
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationTable;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationTable;
 
 public function boot()
 {
@@ -201,7 +208,7 @@ public function boot()
 ### Table Actions
 
 ```php
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationActions;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationActions;
 
 public function boot()
 {
@@ -214,7 +221,7 @@ public function boot()
 ### Table Filters
 
 ```php
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationFilters;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationFilters;
 
 public function boot()
 {
@@ -227,7 +234,7 @@ public function boot()
 ### Table Bulk Actions
 
 ```php
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationBulkActions;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationBulkActions;
 
 public function boot()
 {
@@ -240,7 +247,7 @@ public function boot()
 ### From Components
 
 ```php
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Form\TranslationForm;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Form\TranslationForm;
 
 public function boot()
 {
@@ -253,10 +260,10 @@ public function boot()
 ### Page Actions
 
 ```php
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\EditPageActions;
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ViewPageActions;
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\CreatePageActions;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Actions\EditPageActions;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ViewPageActions;
+use TomatoPhp\FilamentTranslations\Filament\Resources\TranslationResource\Actions\CreatePageActions;
 
 public function boot()
 {

@@ -1,13 +1,13 @@
 <?php   
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources;
 
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Form\TranslationForm;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationTable;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Form\TranslationForm;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationTable;
+use TomatoPHP\FilamentTranslations\Models\Translation;
 
 class TranslationResource extends Resource
 {
@@ -63,13 +63,13 @@ class TranslationResource extends Resource
     {
         if (config('filament-translations.modal')) {
             return [
-                'index' => \NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Pages\ManageTranslations::route('/'),
+                'index' => \TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Pages\ManageTranslations::route('/'),
             ];
         } else {
             return [
-                'index' => \NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Pages\ListTranslations::route('/'),
-                'create' => \NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Pages\CreateTranslation::route('/create'),
-                'edit' => \NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Pages\EditTranslation::route('/{record}/edit'),
+                'index' => \TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Pages\ListTranslations::route('/'),
+                'create' => \TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Pages\CreateTranslation::route('/create'),
+                'edit' => \TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Pages\EditTranslation::route('/{record}/edit'),
             ];
         }
     }

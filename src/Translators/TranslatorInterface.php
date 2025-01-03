@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Translators;
+namespace TomatoPHP\FilamentTranslations\Translators;
 
 interface TranslatorInterface
 {

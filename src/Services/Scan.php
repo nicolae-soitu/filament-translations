@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Services;
+namespace TomatoPHP\FilamentTranslations\Services;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;

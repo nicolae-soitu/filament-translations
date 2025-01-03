@@ -1,28 +1,28 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations;
+namespace TomatoPHP\FilamentTranslations;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components\ClearAction;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components\CreateAction;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components\ScanAction;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\HeaderActions\ExportAction;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\HeaderActions\ImportAction;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationHeaderActions;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationBulkActions;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components\ClearAction;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components\CreateAction;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components\ScanAction;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\ManagePageActions;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\HeaderActions\ExportAction;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\HeaderActions\ImportAction;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationHeaderActions;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationBulkActions;
 use Filament\Tables\Actions\BulkAction;
 use Illuminate\Support\Collection;
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationFilters;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\TranslationFilters;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Models\Translation;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;    
 use Filament\Forms\Components\Radio;    
-use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Form\TranslationForm;
+use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Form\TranslationForm;
 
 class FilamentTranslationsPlugin implements Plugin
 {

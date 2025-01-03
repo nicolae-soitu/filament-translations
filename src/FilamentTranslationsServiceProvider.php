@@ -1,12 +1,12 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations;
+namespace TomatoPHP\FilamentTranslations;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use NicolaeSoitu\FilamentTranslations\Console\FilamentTranslationsInstall;
-use NicolaeSoitu\FilamentTranslations\Console\ImportCommand;
-use NicolaeSoitu\FilamentTranslations\Console\ScanPath;
+use TomatoPHP\FilamentTranslations\Console\FilamentTranslationsInstall;
+use TomatoPHP\FilamentTranslations\Console\ImportCommand;
+use TomatoPHP\FilamentTranslations\Console\ScanPath;
 
 class FilamentTranslationsServiceProvider extends ServiceProvider
 {

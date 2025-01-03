@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\Actions;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\Actions;
 
 abstract class Action
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components;
+namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components;
 
 use Filament\Actions;
 use Filament\Notifications\Notification;
-use NicolaeSoitu\FilamentTranslations\Models\Translation;
+use TomatoPHP\FilamentTranslations\Models\Translation;
 
 class ClearAction extends Action
 {

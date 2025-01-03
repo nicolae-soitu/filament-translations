@@ -1,9 +1,9 @@
 <?php
 
-namespace NicolaeSoitu\FilamentTranslations\Translators\Openai;
+namespace TomatoPHP\FilamentTranslations\Translators\Openai;
 
-use NicolaeSoitu\FilamentTranslations\Translators\Filament\ModalAction;
-// use NicolaeSoitu\FilamentTranslations\Translators\Openai\OpenaiTranslator;
+use TomatoPHP\FilamentTranslations\Translators\Filament\ModalAction;
+// use TomatoPHP\FilamentTranslations\Translators\Openai\OpenaiTranslator;
 
 class OpenaiTranslateAction extends ModalAction 
 {
