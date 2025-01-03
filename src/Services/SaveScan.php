@@ -1,12 +1,12 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Services;
+namespace NicolaeSoitu\FilamentTranslations\Services;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Lang;
-use TomatoPHP\FilamentTranslations\Models\Translation;
+use NicolaeSoitu\FilamentTranslations\Models\Translation;
 
 class SaveScan
 {
@@ -25,19 +25,20 @@ class SaveScan
         })->each(function ($path) use ($scanner) {
             $scanner->addScannedPath($path);
         });
+        
 
-        [$trans, $__] = $scanner->getAllViewFilesWithTranslations();
-
-        /** @var Collection $trans */
+        [$trans, $__, $foundIn] = $scanner->getAllViewFilesWithTranslations();
+        
+        // /** @var Collection $trans */
         /** @var Collection $__ */
-        DB::transaction(function () use ($trans, $__) {
-            Translation::query()
-                ->whereNull('deleted_at')
-                ->update([
-                    'deleted_at' => Carbon::now(),
-                ]);
-
-            $trans->each(function ($trans) {
+        DB::transaction(function () use ($trans, $__, $foundIn) {
+            // Translation::query()
+            //     ->whereNull('deleted_at')
+            //     ->update([
+            //         'deleted_at' => Carbon::now(),
+            //     ]);
+            
+            $trans->each(function ($trans) use ($foundIn) {
                 [$group, $key] = explode('.', $trans, 2);
                 $namespaceAndGroup = explode('::', $group, 2);
                 if (count($namespaceAndGroup) === 1) {
@@ -46,16 +47,18 @@ class SaveScan
                 } else {
                     [$namespace, $group] = $namespaceAndGroup;
                 }
-                $this->createOrUpdate($namespace, $group, $key, $trans);
+                // dd($foundIn[$trans]);
+                $this->createOrUpdate($namespace, $group, $key, $trans, $foundIn[$trans]);
             });
 
-            $__->each(function ($default) {
-                $this->createOrUpdate('*', '*', $default, $default);
+            $__->each(function ($default) use ($foundIn) {
+                
+                $this->createOrUpdate('*', '*', $default, $default, $foundIn[$default]);
             });
         });
     }
 
-    protected function createOrUpdate($namespace, $group, $key, $mainKey = null): void
+    protected function createOrUpdate($namespace, $group, $key, $mainKey = null, $foundIn = []): void
     {
         /** @var Translation $translation */
         $translation = Translation::withTrashed()
@@ -65,31 +68,61 @@ class SaveScan
             ->first();
 
         $defaultLocale = config('app.locale');
-
+        // dd(array_intersect([1,2,3], [1,2,4]), array_intersect([1,2,5], [1,2,3]));
+        $foundIn = array_values($foundIn);
+        
+        $source = $this ->getSource($foundIn);
         if ($translation) {
-            if (! $this->isCurrentTransForTranslationArray($translation, $defaultLocale)) {
+            // if (! $this->isCurrentTransForTranslationArray($translation, $defaultLocale)) {
+            if($translation->deleted_at){
                 $translation->restore();
             }
-        } else {
-            $locals = config('filament-translations.locals');
-            $text = [];
-            foreach ($locals as $locale => $lang) {
-                $translation = Lang::get(key: $key, fallback: str($key)->replace('.', ' ')->replace('_', ' ')->title()->toString());
-                $text[$locale] = ! is_array($translation) ? Lang::get($key) : '';
+            if(count(array_intersect($foundIn, $translation->found_in??[])) != count($foundIn)){
+                $translation->found_in = $foundIn;
             }
-            $translation = Translation::query()->create([
-                'namespace' => $namespace,
-                'group' => $group,
-                'key' => $key,
-                'text' => $text,
-            ]);
-
-            if (! $this->isCurrentTransForTranslationArray($translation, $defaultLocale)) {
+            if($translation->source != $source && $translation->source != 'manual'){
+                $translation->source = $source;
+            }
+            if($translation->is_allowed == false){
+                $translation->is_allowed = true;
+            }
+            if($translation->wasChanged()){
                 $translation->save();
             }
+            return;
+        } 
+        $locals = config('filament-translations.locals');
+        $text = [];
+        foreach ($locals as $locale => $lang) {
+            $phrase = Lang::get(key: $key, fallback: str($key)->replace('.', ' ')->replace('_', ' ')->title()->toString(), locale: $locale);
+            $text[$locale] = is_array($phrase) ? '' : $phrase;
         }
+        $translation = Translation::query()->create([
+            'namespace' => $namespace,
+            'group' => $group,
+            'key' => $key,
+            'text' => $text,
+            'found_in' => $foundIn,
+            'source' => $source,
+            'is_imported' => true,
+            'is_allowed' => true,
+        ]);
+        if (! $this->isCurrentTransForTranslationArray($translation, $defaultLocale)) {
+            $translation->save();
+        }
+    
     }
-
+    private function getSource($paths){
+        
+        $values = array_map(fn($path) => current( explode('/',$path )), $paths);
+        
+        $values = array_values(array_unique($values));
+        
+        if(count($values) === 1){
+            return $values[0];
+        }
+        return 'mix';
+    }
     private function isCurrentTransForTranslationArray(Translation $translation, $locale): bool
     {
         if ($translation->group === '*') {

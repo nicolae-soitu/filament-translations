@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Exports;
+namespace NicolaeSoitu\FilamentTranslations\Exports;
 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;

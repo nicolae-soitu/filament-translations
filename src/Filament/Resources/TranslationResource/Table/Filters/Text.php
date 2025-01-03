@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\Filters;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\Filters;
 
 use Filament\Tables\Filters;
 use Illuminate\Database\Eloquent\Builder;

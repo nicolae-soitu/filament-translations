@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\Columns;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\Columns;
 
 use Filament\Tables;
 

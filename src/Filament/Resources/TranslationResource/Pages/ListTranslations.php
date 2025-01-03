@@ -1,9 +1,9 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Pages;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Pages;
 
 use Filament\Resources\Pages\ListRecords;
-use TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource;
+use NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource;
 
 class ListTranslations extends ListRecords
 {

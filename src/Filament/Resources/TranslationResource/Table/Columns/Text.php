@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\Columns;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\Columns;
 
 use Filament\Tables;
 
@@ -11,6 +11,7 @@ class Text extends Column
         return Tables\Columns\TextColumn::make('text')
             ->label(trans('filament-translations::translation.text'))
             ->view('filament-translations::text-column')
+            ->wrap()
             ->searchable();
     }
 }

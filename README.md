@@ -73,6 +73,50 @@ You can scan your project to get all the languages tags and save them to the dat
 php artisan filament-translations:import
 ```
 
+## Configuring Translators
+
+To use automatic translation, make sure you have the following settings in your `config/filament-translations.php` configuration file:
+
+```php
+    /*
+     |--------------------------------------------------------------------------
+     |
+     | Translate only empty words.
+     |
+     */
+    'only_empty_words' => true,
+
+    /*
+     |--------------------------------------------------------------------------
+     |
+     | Default locale for translation.
+     |
+     */
+    'default_locale_for_translation' => 'en',
+
+    /*
+     |--------------------------------------------------------------------------
+     |
+     | Translators.
+     |
+     */
+    'translators' => [
+        'google' => [
+            'allowed' => true,
+            'handler' =>  NicolaeSoitu\FilamentTranslations\Translators\Google\GoogleTranslator::class, 
+            'chunk_size' => 100,
+        ],
+        'openai' => [
+            'allowed' => true,
+            'handler' =>  \NicolaeSoitu\FilamentTranslations\Translators\Openai\OpenaiTranslator::class,
+            'chunk_size' => 50,
+            'model' => 'gpt-3.5-turbo',
+            'system_prompt' => 'You are a translator. Your job is to translate the following json object to the language specified in the prompt.',
+            'user_prompt' => 'Translate the following json object from :from to :language, ensuring you return only the translated content in JSON format without added quotes or any other extraneous details and dont change the keys. Importantly, any word prefixed with the symbol ":" should remain unchanged and should not be translated the key "context" should be used to understand the meaning of the phrase',
+        ],
+    ],
+```
+
 ## Change Scan to work on Queue
 
 In your config file just change the `use_queue_on_scan` to `true`

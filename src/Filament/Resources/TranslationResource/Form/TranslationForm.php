@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Form;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Form;
 
 use Filament\Forms\Components\Field;
 use Filament\Forms\Form;

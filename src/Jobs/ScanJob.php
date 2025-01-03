@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Jobs;
+namespace NicolaeSoitu\FilamentTranslations\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
-use TomatoPHP\FilamentTranslations\Services\SaveScan;
+use NicolaeSoitu\FilamentTranslations\Services\SaveScan;
 
 class ScanJob implements ShouldQueue
 {

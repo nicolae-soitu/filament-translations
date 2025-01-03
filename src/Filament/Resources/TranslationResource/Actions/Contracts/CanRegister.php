@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Contracts;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Contracts;
 
 use Filament\Actions\StaticAction;
 use Filament\Forms\Form;
@@ -27,7 +27,9 @@ trait CanRegister
     public function getActions(): array
     {
         return collect($this->getDefaultActions())->merge(self::$actions)->map(function (StaticAction $action) {
+            
             if (method_exists($action, 'record') && str($action->getName())->contains(['create', 'edit', 'view'])) {
+                
                 $action->record(method_exists(self::$page, 'getRecord') ? self::$page->getRecord() : null)
                     ->model(method_exists(self::$page, 'getModel') ? self::$page->getModel() : null)
                     ->modelLabel(method_exists(self::$page, 'getModelLabel') ? get_model_label(self::$page->getModel()) : null)

@@ -1,13 +1,13 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Services;
+namespace NicolaeSoitu\FilamentTranslations\Services;
 
 use Filament\Notifications\Notification;
 use Illuminate\Http\UploadedFile;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
-use TomatoPHP\FilamentTranslations\Exports\TranslationsExport;
-use TomatoPHP\FilamentTranslations\Imports\TranslationsImport;
+use NicolaeSoitu\FilamentTranslations\Exports\TranslationsExport;
+use NicolaeSoitu\FilamentTranslations\Imports\TranslationsImport;
 
 class ExcelImportExportService
 {

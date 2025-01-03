@@ -1,9 +1,9 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Console;
+namespace NicolaeSoitu\FilamentTranslations\Console;
 
 use Illuminate\Console\Command;
-use TomatoPHP\ConsoleHelpers\Traits\RunCommand;
+use Tomatophp\ConsoleHelpers\Traits\RunCommand;
 
 class FilamentTranslationsInstall extends Command
 {

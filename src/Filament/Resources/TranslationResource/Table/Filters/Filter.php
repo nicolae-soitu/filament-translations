@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\Filters;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\Filters;
 
 abstract class Filter
 {

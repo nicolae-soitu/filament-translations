@@ -1,10 +1,10 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions\Components;
 
 use Filament\Actions;
 use Filament\Notifications\Notification;
-use TomatoPHP\FilamentTranslations\Jobs\ScanJob;
+use NicolaeSoitu\FilamentTranslations\Jobs\ScanJob;
 use TomatoPHP\FilamentTranslations\Services\SaveScan;
 
 use function Laravel\Prompts\spin;

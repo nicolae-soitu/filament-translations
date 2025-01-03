@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Form\Components;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Form\Components;
 
 class Text extends Component
 {

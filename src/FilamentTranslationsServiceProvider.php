@@ -1,12 +1,12 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations;
+namespace NicolaeSoitu\FilamentTranslations;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use TomatoPHP\FilamentTranslations\Console\FilamentTranslationsInstall;
-use TomatoPHP\FilamentTranslations\Console\ImportCommand;
-use TomatoPHP\FilamentTranslations\Console\ScanPath;
+use NicolaeSoitu\FilamentTranslations\Console\FilamentTranslationsInstall;
+use NicolaeSoitu\FilamentTranslations\Console\ImportCommand;
+use NicolaeSoitu\FilamentTranslations\Console\ScanPath;
 
 class FilamentTranslationsServiceProvider extends ServiceProvider
 {
@@ -22,6 +22,8 @@ class FilamentTranslationsServiceProvider extends ServiceProvider
 
         //Register Migrations
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(base_path('Package/nicolae-soitu/filament-translations/database/migrations'));
+        // dump('register migrations');
 
         //Publish Migrations
         $this->publishes([
@@ -57,5 +59,7 @@ class FilamentTranslationsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Config::set('filament-translation-component.languages', Config::get('filament-translations.locals'));
+        
+       
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Services;
+namespace NicolaeSoitu\FilamentTranslations\Services;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
@@ -21,6 +21,7 @@ class Scan
      * @var array
      */
     private $scannedPaths;
+    private $words;
 
     /**
      * Manager constructor.
@@ -105,29 +106,54 @@ class Scan
         $trans = collect();
         $__ = collect();
         $excludedPaths = config('filament-translations.excludedPaths');
+        $basePathLength = strlen(base_path());
 
         // FIXME maybe we can count how many times one translation is used and eventually display it to the user
 
         /** @var SplFileInfo $file */
         foreach ($this->disk->allFiles($this->scannedPaths->toArray()) as $file) {
+            
             $dir = dirname($file);
+            $filepath = substr($file->getRealPath(),$basePathLength);
             if (Str::startsWith($dir, $excludedPaths)) {
                 continue;
             }
 
             if (preg_match_all("/$patternA/siU", $file->getContents(), $matches)) {
+                $this->setWords($matches[2],$filepath);
                 $trans->push($matches[2]);
             }
 
             if (preg_match_all("/$patternB/siU", $file->getContents(), $matches)) {
+                $this->setWords($matches[2],$filepath);
                 $__->push($matches[2]);
             }
 
             if (preg_match_all("/$patternC/siU", $file->getContents(), $matches)) {
                 $__->push($matches[2]);
+                $this->setWords($matches[2],$filepath);
             }
         }
-
-        return [$trans->flatten()->unique(), $__->flatten()->unique()];
+        return [$trans->flatten()->unique(), $__->flatten()->unique(), $this->getWords()];
+    }
+    private function setWords($words, $file)
+    {
+        if(is_array($words)){
+            foreach($words as $word){
+                $this -> setWord($word, $file);
+            }
+        }else{
+            $this -> setWord($words, $file);
+        }
+    }
+    private function setWord($word, $file)
+    {
+        if(!isset($this -> words[$word])){
+            $this -> words[$word] = [];
+        }  $file = ltrim($file,'/');
+        $this -> words[$word][$file] = $file;
+    }
+    private function getWords(){
+        return $this -> words;
     }
 }

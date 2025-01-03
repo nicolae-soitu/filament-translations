@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Models;
+namespace NicolaeSoitu\FilamentTranslations\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,7 +17,17 @@ class Translation extends LanguageLine
     public $guarded = ['id'];
 
     /** @var array */
-    protected $casts = ['text' => 'array'];
+    protected $casts = [
+        'text' => 'array',
+        'is_allowed' => 'boolean',
+        'need_atention' => 'boolean',
+        'found_in' => 'array',
+        'source' => 'string',
+        'allow_automatical_translation' => 'boolean',
+        'context_for_ai' => 'string',
+        'description' => 'string',
+        'need_atention' => 'boolean',
+    ];
 
     protected $table = 'language_lines';
 
@@ -26,11 +36,22 @@ class Translation extends LanguageLine
         'key',
         'text',
         'namespace',
+        'is_allowed',
+        'found_in',
+        'source',
+        'allow_automatical_translation',
+        'context_for_ai',
+        'description',
+        'need_atention',
     ];
 
     public static function getTranslatableLocales(): array
     {
         return config('filament-translations.locals');
+    }
+
+    public function getTextByLocale(string $locale){
+        return $this->text[$locale]??'';
     }
 
     public function getTranslation(string $locale, ?string $group = null): string

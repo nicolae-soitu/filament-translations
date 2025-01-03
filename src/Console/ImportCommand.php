@@ -1,9 +1,9 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Console;
+namespace NicolaeSoitu\FilamentTranslations\Console;
 
 use Illuminate\Console\Command;
-use TomatoPHP\FilamentTranslations\Services\SaveScan;
+use NicolaeSoitu\FilamentTranslations\Services\SaveScan;
 
 use function Laravel\Prompts\spin;
 
@@ -14,7 +14,7 @@ class ImportCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'filament-translations:import';
+    protected $signature = 'filament-translationsaa:import';
 
     /**
      * The console command description.
@@ -29,6 +29,7 @@ class ImportCommand extends Command
     public function handle()
     {
         if (config('filament-translations.path_to_custom_import_command')) {
+            
             spin(
                 function () {
                     $command = config('filament-translations.path_to_custom_import_command');
@@ -42,7 +43,6 @@ class ImportCommand extends Command
 
             return;
         }
-
         spin(
             function () {
                 $scan = new SaveScan;

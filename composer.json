@@ -1,5 +1,5 @@
 {
-    "name": "tomatophp/filament-translations",
+    "name": "nicolae-soitu/filament-translations",
     "type": "library",
     "description": "Manage your translation with DB and cache, you can scan your languages tags like trans(), __(), and get the string inside and translate them use UI.",
     "keywords": [
@@ -23,24 +23,28 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "TomatoPHP\\FilamentTranslations\\": "src/"
+            "NicolaeSoitu\\FilamentTranslations\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "TomatoPHP\\FilamentTranslations\\Tests\\": "tests/src/",
-            "TomatoPHP\\FilamentTranslations\\Tests\\Database\\Factories\\": "tests/database/factories",
-            "TomatoPHP\\FilamentTranslations\\Tests\\Database\\Seeders\\": "tests/database/seeders"
+            "NicolaeSoitu\\FilamentTranslations\\Tests\\": "tests/src/",
+            "NicolaeSoitu\\FilamentTranslations\\Tests\\Database\\Factories\\": "tests/database/factories",
+            "NicolaeSoitu\\FilamentTranslations\\Tests\\Database\\Seeders\\": "tests/database/seeders"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "TomatoPHP\\FilamentTranslations\\FilamentTranslationsServiceProvider"
+                "NicolaeSoitu\\FilamentTranslations\\FilamentTranslationsServiceProvider"
             ]
         }
     },
     "authors": [
+        {
+            "name": "Nicolae Soitu",
+            "email": "nicolae.soitu@gmail.com"
+        },
         {
             "name": "Fady Mondy",
             "email": "info@3x1.io"

@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Actions;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Actions;
 
 final class ViewPageActions
 {

@@ -13,6 +13,7 @@ return [
         app_path(),
         resource_path('views'),
         base_path('vendor'),
+        base_path('Modules'),
     ],
 
     /*
@@ -39,22 +40,18 @@ return [
             'label' => 'English',
             'flag' => 'us',
         ],
-        'ar' => [
-            'label' => 'Arabic',
-            'flag' => 'eg',
+        'ro' => [
+            'label' => 'Română',
+            'flag' => 'ro',
         ],
-        'pt_BR' => [
-            'label' => 'Português (Brasil)',
-            'flag' => 'br',
+        'ru' => [
+            'label' => 'Русский',
+            'flag' => 'ru',
         ],
-        'my' => [
-            'label' => 'Burmese',
-            'flag' => 'mm',
-        ],
-        'id' => [
-            'label' => 'Indonesia',
-            'flag' => 'id',
-        ],
+        // 'pt_BR' => [
+        //     'label' => 'Português (Brasil)',
+        //     'flag' => 'br',
+        // ],
     ],
 
     /*
@@ -115,7 +112,7 @@ return [
      | Translation resource.
      |
      */
-    'translation_resource' => \TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource::class,
+    'translation_resource' => \NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource::class,
 
     /*
      |--------------------------------------------------------------------------
@@ -132,4 +129,41 @@ return [
      |
      */
     'path_to_custom_excel_import' => null,
+    /*
+     |--------------------------------------------------------------------------
+     |
+     | Translate only empty words.
+     |
+     */
+    'only_empty_words' => true,
+
+    /*
+     |--------------------------------------------------------------------------
+     |
+     | Default locale for translation.
+     |
+     */
+    'default_locale_for_translation' => 'en',
+
+    /*
+     |--------------------------------------------------------------------------
+     |
+     | Translators.
+     |
+     */
+    'translators' => [
+        'google' => [
+            'allowed' => true,
+            'handler' =>  NicolaeSoitu\FilamentTranslations\Translators\Google\GoogleTranslator::class, 
+            'chunk_size' => 100,
+        ],
+        'openai' => [
+            'allowed' => true,
+            'handler' =>  \NicolaeSoitu\FilamentTranslations\Translators\Openai\OpenaiTranslator::class,
+            'chunk_size' => 50,
+            'model' => 'gpt-3.5-turbo',
+            'system_prompt' => 'You are a translator. Your job is to translate the following json object to the language specified in the prompt.',
+            'user_prompt' => 'Translate the following json object from :from to :language, ensuring you return only the translated content in JSON format without added quotes or any other extraneous details and dont change the keys. Importantly, any word prefixed with the symbol ":" should remain unchanged and should not be translated the key "context" should be used to understand the meaning of the phrase',
+        ],
+    ],
 ];

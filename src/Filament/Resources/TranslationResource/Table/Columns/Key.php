@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table\Columns;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table\Columns;
 
 use Filament\Tables;
 
@@ -11,6 +11,8 @@ class Key extends Column
         return Tables\Columns\TextColumn::make('key')
             ->label(trans('filament-translations::translation.key'))
             ->searchable()
-            ->sortable();
+            ->sortable()
+            ->wrap()
+            ->description(fn ($record): string => $record->description??'');
     }
 }

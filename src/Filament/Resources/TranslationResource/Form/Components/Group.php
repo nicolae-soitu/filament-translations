@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Form\Components;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Form\Components;
 
 use Filament\Forms;
 
@@ -11,6 +11,7 @@ class Group extends Component
         return Forms\Components\TextInput::make('group')
             ->label(trans('filament-translations::translation.group'))
             ->required()
+            ->default('*')
             ->disabled(fn (Forms\Get $get) => $get('id') !== null)
             ->maxLength(255);
     }

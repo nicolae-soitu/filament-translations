@@ -1,6 +1,6 @@
 <?php
 
-namespace TomatoPHP\FilamentTranslations\Filament\Resources\TranslationResource\Table;
+namespace NicolaeSoitu\FilamentTranslations\Filament\Resources\TranslationResource\Table;
 
 class TranslationHeaderActions
 {
