@@ -3,7 +3,7 @@
 namespace TomatoPHP\FilamentTranslations\Console;
 
 use Illuminate\Console\Command;
-use Tomatophp\ConsoleHelpers\Traits\RunCommand;
+use TomatoPHP\ConsoleHelpers\Traits\RunCommand;
 
 class FilamentTranslationsInstall extends Command
 {

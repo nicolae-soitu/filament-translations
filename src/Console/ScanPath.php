@@ -4,7 +4,7 @@ namespace TomatoPHP\FilamentTranslations\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Tomatophp\ConsoleHelpers\Traits\RunCommand;
+use TomatoPHP\ConsoleHelpers\Traits\RunCommand;
 use TomatoPHP\FilamentTranslations\Services\Scan;
 
 use function Laravel\Prompts\error;

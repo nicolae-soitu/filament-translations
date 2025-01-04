@@ -21,6 +21,7 @@
         "spatie"
     ],
     "license": "MIT",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "TomatoPHP\\FilamentTranslations\\": "src/"
