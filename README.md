@@ -287,6 +287,12 @@ public function boot()
 
 ## Publish Assets
 
+You can publish config file by use this command:
+
+```bash
+php artisan vendor:publish --tag="filament-translations-config"
+```
+
 You can publish views file by use this command:
 
 ```bash
