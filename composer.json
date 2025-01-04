@@ -21,8 +21,7 @@
         "spatie"
     ],
     "license": "MIT",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "TomatoPHP\\FilamentTranslations\\": "src/"
@@ -89,5 +88,5 @@
         "phpstan/phpstan-deprecation-rules": "^1.2",
         "phpstan/phpstan-phpunit": "^1.4"
     },
-    "version": "v2.0.5-fork"
+    "version": "v2.0.6"
 }
